@@ -1,2 +1,2 @@
 # NiFi_Data_Processing
-NiFi data flow: templates with appropriate Python scripts
+NiFi data flow: NiFi templates with appropriate Python scripts
