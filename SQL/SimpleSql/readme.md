@@ -4,14 +4,20 @@ A DataFlow that queries an SQL database every day at midnight, collecting the da
 
 ## How does it work?
 The DataFlow starts with a GenerateFlowFile processor that generates a flow file every day at 00:00, configured with CRON as on the picture below.
+
 ![image](https://user-images.githubusercontent.com/90190347/189133152-ffb26be6-27c5-4e29-a0ee-a9ffefc2fde1.png)
-The next step is to somehow have the date for the previous date which will be used in a query. We do that by using the Update Attribute processor, allowing us to add custom attributes to the flowfiles. In this case we add the attribute named "date" and give it the value of "${now():toNumber():minus(86400000):format('yyyy-MM-dd')}" which returns us yesterdays date using [NiFi's expression Language](https://nifi.apache.org/docs/nifi-docs/html/expression-language-guide.html)
+
+The next step is to somehow have the date for the previous date which will be used in a query. We do that by using the Update Attribute processor, allowing us to add custom attributes to the flowfiles. In this case we add the attribute named "date" and give it the value of "${now():toNumber():minus(86400000):format('yyyy-MM-dd')}" 
+which returns us yesterdays date using [NiFi's expression Language](https://nifi.apache.org/docs/nifi-docs/html/expression-language-guide.html)
+
 ![image](https://user-images.githubusercontent.com/90190347/189134455-e07c5460-ddc8-429f-88e3-dbab77e44d3a.png)
 
 Now we are ready to query the data, we will use ExecuteSQLRecord for that. The first thing required is a Connection Pooling Service for which we will create a simple DBCPConnectionPool service. 
+
 ![image](https://user-images.githubusercontent.com/90190347/189134928-848ed5cc-a742-4e67-8fea-5e2d8bef7e46.png)
 
 DBCPConnectionPool configurations should look like on the image below
+
 ![image](https://user-images.githubusercontent.com/90190347/189135428-46b271c2-5549-4091-96a1-a2bdad9980aa.png)
 
 Database Connection URL looking like: ```jdbc:sqlserver://HOST_HERE;encrypt=false;user=USERNAME;password=PASSWORD```
