@@ -3,11 +3,11 @@ A DataFlow that queries an SQL database every day at midnight, collecting the da
 ![image](https://user-images.githubusercontent.com/90190347/189132848-668f3b80-370a-4fd5-b9d4-8cc3d027ac45.png)
 
 ## How does it work?
-The DataFlow starts with a GenerateFlowFile processor that generates a flow file every day at 00:00, configured with CRON as on the picture below.
+The DataFlow starts with a GenerateFlowFile processor that generates a flowfile every day at 00:00, configured with CRON as on the picture below.
 
 ![image](https://user-images.githubusercontent.com/90190347/189133152-ffb26be6-27c5-4e29-a0ee-a9ffefc2fde1.png)
 
-The next step is to somehow have the date for the previous date which will be used in a query. We do that by using the Update Attribute processor, allowing us to add custom attributes to the flowfiles. In this case we add the attribute named "date" and give it the value of "${now():toNumber():minus(86400000):format('yyyy-MM-dd')}" 
+The next step is to somehow have the date for the previous day, which will be used in a query. We will do that by using the UpdateAttribute processor, allowing us to add custom attributes to the flowfiles. In this case we add the attribute named "date" and give it the value of "${now():toNumber():minus(86400000):format('yyyy-MM-dd')}" 
 which returns us yesterdays date using [NiFi's expression Language](https://nifi.apache.org/docs/nifi-docs/html/expression-language-guide.html)
 
 ![image](https://user-images.githubusercontent.com/90190347/189134455-e07c5460-ddc8-429f-88e3-dbab77e44d3a.png)
