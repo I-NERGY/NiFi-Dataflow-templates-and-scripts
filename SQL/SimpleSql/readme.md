@@ -21,7 +21,9 @@ DBCPConnectionPool configurations should look like on the image below.
 ![image](https://user-images.githubusercontent.com/90190347/189135428-46b271c2-5549-4091-96a1-a2bdad9980aa.png)
 
 Database Connection URL should look like this: ```jdbc:sqlserver://HOST_HERE;encrypt=false;user=USERNAME;password=PASSWORD```.
-The instance on where NiFi is running should contain a proper Database Driver, in this case its SQLServerDriver with the classname ```com.microsoft.sqlserver.jdbc.SQLServerDriver``` and its path on ```/opt/nifi/nifi-current/conf/sqljdbc/ita/mssql-jdbc-10.2.0.jre8.jar```
+
+The instance on where NiFi is running should contain a proper Database Driver, in this case its SQLServerDriver with the classname ```com.microsoft.sqlserver.jdbc.SQLServerDriver``` and its path on ```/opt/nifi/nifi-current/conf/sqljdbc/ita/mssql-jdbc-10.2.0.jre8.jar```.
+
 Now that the connection is working correctly, we can finally query the data. In this case for "SQL select query" field we put ```SELECT * FROM table_name
 WHERE date LIKE '${date}%';``` where we select all the data for the previous date. The flowfile attribute is accessed like in the example ```${date}```.
 
