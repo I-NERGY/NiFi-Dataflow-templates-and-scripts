@@ -16,7 +16,7 @@ Now we are ready to query the data, we will use ExecuteSQLRecord for that. The f
 
 ![image](https://user-images.githubusercontent.com/90190347/189134928-848ed5cc-a742-4e67-8fea-5e2d8bef7e46.png)
 
-DBCPConnectionPool configurations should look like on the image below
+DBCPConnectionPool configurations should look like on the image below.
 
 ![image](https://user-images.githubusercontent.com/90190347/189135428-46b271c2-5549-4091-96a1-a2bdad9980aa.png)
 
@@ -26,6 +26,7 @@ Now that the connection is working correctly, we can finally query the data. In 
 WHERE date LIKE '${date}%';``` where we select all the data for the previous date. The flowfile attribute is accessed like in the example ```${date}```.
 
 ExecuteSQLRecord processor requires one more service for writing results to a flowfile, a Record Writer. We will use a simple CSVRecordSetWriter with the default properties. 
+
 ![image](https://user-images.githubusercontent.com/90190347/189137402-50e5e806-6bac-413f-bd43-cec2b1d1103b.png)
 
 
