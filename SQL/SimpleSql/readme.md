@@ -1,5 +1,5 @@
 ## Simple SQL DataFlow
-A DataFlow that queries an SQL database every day at midnight, collecting the data for the previous date.
+A DataFlow that queries an SQL database every day at midnight, collecting the data for the previous day.
 ![image](https://user-images.githubusercontent.com/90190347/189132848-668f3b80-370a-4fd5-b9d4-8cc3d027ac45.png)
 
 ## How does it work?
