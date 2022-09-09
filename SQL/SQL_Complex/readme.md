@@ -17,9 +17,16 @@ In this case we want to extract the current data for each device with a unique I
 List of steps for the first group:
   1.  Generate the flow files like above
   2.  Split the JSON array data in flowfiles, each of them being one JSON object. We do that with ```SplitJson``` processor and setting ```JsonPath Expression``` to ```$.*```. 
-  3.  Extract ```id``` and ```tags``` from data to attributes using the ```EvaluateJsonPath``` processor like on the picture below
+  3.  Extract ```id``` and ```tags``` from data to attributes using the ```EvaluateJsonPath``` processor like on the picture below. 
   
   ![image](https://user-images.githubusercontent.com/90190347/189374893-48e1695e-0b18-40c4-be33-1f9febe6cde3.png)
   
-  4.  
+  4.  Remove unwanted characters by replacing them with space using ```ReplaceText``` processor
+  5.  Replace the ```,``` character with ```or```, giving us the correct ```WHERE``` clausule
+  6.  Extract the whole content to an attribute called ```tag_query``` using the ```ExtractText```processor by adding a new property like on the picture below
+ 
+  ![image](https://user-images.githubusercontent.com/90190347/189376504-0962dabf-6a89-47e9-865f-b7359e406139.png)
+  
+  
+
 
