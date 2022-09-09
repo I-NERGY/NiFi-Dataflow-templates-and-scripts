@@ -68,6 +68,19 @@ The next step is covered in the [Simple SQL example](https://github.com/I-NERGY/
 We use ```RouteOnAttribute``` processor that allows us to route flowfiles based on their attributes. In this case we are rejecting empty files by making a new route(property) called ```non-empty``` which contains ```${fileSize:gt(0)}```. In this way every flow file with bigger size than 0 bytes will be routed to ```non-empty``` route.
 
 ### Preprocessing and saving
+In this last group we want to make sure that the raw collected data from MySQL is preprocessed by a harmonization script and then published to both Kafka and MongoDB. 
+This example exists ir order to show how inputs and outputs work with ```ExecuteStreamCommand```.
+
+The script in this case requires 2 inputs, one with raw data that will read from standard in and processed, and the id of the device passed as an argument. We can do that with ```ExecuteSteamCommand```, by passing the id attribute as an argument with ```Command Arguments``` looking like ```/opt/scripts/current_harmonizator.py;${ID}```, where the ```Argument delimiter``` is ```;```. The content of a flow file will be passed to a standard input by default.
+
+![image](https://user-images.githubusercontent.com/90190347/189388542-43d8c609-7841-4ffe-aa8c-1634c8a3c9e0.png)
+
+Now in the python script we can you the ```sys``` package to read the argument and data.
+
+```python
+self.id = sys.argv[1]
+self.raw_data = sys.stdin.read()
+```
 
 
 
