@@ -59,7 +59,13 @@ In this case we have a ```generate_daily_dates``` that simply generates a JSON a
 
 ![image](https://user-images.githubusercontent.com/90190347/189382617-bca4e201-abcb-40d2-9eba-3bfe6ea35f20.png)
 
+### Executing the queries
+The next step is covered in the [Simple SQL example](https://github.com/I-NERGY/NiFi-Dataflow-templates-and-scripts/tree/developnikola/SQL/SimpleSql). The part that we are modifying is an actual select query 
+```SELECT * FROM db.name WHERE (${tag_query}) and ([DateTime]>='${start}') and ([DateTime]<'${end}')``` where we are acessing the previously made attributes ```tag_query```, ```start``` and ```end```.
 
+![image](https://user-images.githubusercontent.com/90190347/189383939-7928d389-4f14-4738-85c3-cadab3686675.png)
+
+### Preprocessing and saving
 
 
 
