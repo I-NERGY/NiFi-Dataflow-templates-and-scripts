@@ -4,7 +4,7 @@ Problem that is being solved in this data flow is data querying on a daily basis
 In this example we will go through attribute extraction, string manipulation, script execution, sql queries, data conversion and data publishing on both MongoDB and Kafka.
 The flow consits of four parts which can be seen on the picture below. 
 
-![image](https://user-images.githubusercontent.com/90190347/189370971-3f6cb76a-4353-4ac2-a31e-a0f63e86e8db.png)
+![image](https://user-images.githubusercontent.com/90190347/189384300-91d32e54-cd04-4b9b-a3a1-836ebffaea02.png)
 
 ## How does it work?
 ### Generating custom queries
