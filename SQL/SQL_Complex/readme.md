@@ -27,6 +27,15 @@ List of steps for the first group:
  
   ![image](https://user-images.githubusercontent.com/90190347/189376504-0962dabf-6a89-47e9-865f-b7359e406139.png)
   
+  The whole process group looks like this:
   
+  ![image](https://user-images.githubusercontent.com/90190347/189376833-947b8f7f-d0c0-42df-a476-18407cb80fdf.png)
+
+
+### Generating dates for each day and query using python
+For each device, we want to query the current data for each day separately, so each flowfile has to have an attribute with ```end``` date, ```start``` date and ```tag_query```.
+
+Regarding the script execution we will use the ```ExecuteStreamCommand``` processor which allows us to execute external commands on the instance while getting the input as the flowfile content and creating the new flowfile that contains the command results. In this case the ```Command Path``` will be ```/usr/bin/python3.9``` or whatever version of python is installed on the instance and ```Command Arguments``` that is ```/opt/scripts/generate_daily_dates.py```or whatever is the path to the script you want to execute.
+
 
 
