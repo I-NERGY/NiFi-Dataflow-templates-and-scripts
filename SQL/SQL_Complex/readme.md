@@ -75,12 +75,36 @@ The script in this case requires 2 inputs, one with raw data that will read from
 
 ![image](https://user-images.githubusercontent.com/90190347/189388542-43d8c609-7841-4ffe-aa8c-1634c8a3c9e0.png)
 
-Now in the python script we can you the ```sys``` package to read the argument and data.
+Now in the python script we can use the ```sys``` package to read the argument and data.
 
 ```python
 self.id = sys.argv[1]
 self.raw_data = sys.stdin.read()
 ```
+
+Now that we have the data we want ready, we can transform it to JSON with ```ConvertRecord``` processor looking like this:
+
+![image](https://user-images.githubusercontent.com/90190347/189389266-ab07a740-467f-4651-906c-f4526bd4cf3b.png)
+
+
+The data is now ready to be published to MongoDB and Kafka. For Mongo we will use the processor ```PutMongoRecord```.
+
+![image](https://user-images.githubusercontent.com/90190347/189389495-b00f9942-11b2-4ee7-8941-ae981fb68288.png)
+
+Mongo URI should be in this format ```mongodb://${mongo_user}:${mongo_password}@${mongo_ip}/```, we can use the local group variables to set these up.
+
+![image](https://user-images.githubusercontent.com/90190347/189389630-31280f4a-e2b9-49e5-911b-2d729594f379.png)
+
+![image](https://user-images.githubusercontent.com/90190347/189390098-2f65595a-5040-4341-8b01-e427ee1d6bdf.png)
+
+```PutMongoRecord``` requires a Record Reader, which is covered in [Simple SQL example](https://github.com/I-NERGY/NiFi-Dataflow-templates-and-scripts/tree/developnikola/SQL/SimpleSql). Here we will use ```JsonTreeReader``` with default properties.
+
+For Kafka we will use ```PublishKafka_2_6``` or any newer version of the processor, with the simillar configuration as with ```PutMongoRecord``` but without the Record Reader.
+
+![image](https://user-images.githubusercontent.com/90190347/189393114-70e05831-d34a-4688-a691-47cf95e4c7f2.png)
+
+
+
 
 
 
