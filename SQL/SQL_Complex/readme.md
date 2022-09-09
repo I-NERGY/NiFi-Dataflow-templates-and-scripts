@@ -39,7 +39,7 @@ Regarding the script execution we will use the ```ExecuteStreamCommand``` proces
 
 In this case we have a ```generate_daily_dates``` that simply generates a JSON array where each object has a ```start``` and ```end``` that are 1 day apart. After they are generated we will split them in separate flow files in a similar fashion to the first process group and then extract then to an attribute. Every flow file coming from the first process group will keep its attributes for queries.
 
-..* ![image](https://user-images.githubusercontent.com/90190347/189381407-7bb475ef-79d0-43b8-b0ed-43b2e5a869e8.png)
-..* 
+- Process group flow ![image](https://user-images.githubusercontent.com/90190347/189381407-7bb475ef-79d0-43b8-b0ed-43b2e5a869e8.png)
+- something else
 
 
