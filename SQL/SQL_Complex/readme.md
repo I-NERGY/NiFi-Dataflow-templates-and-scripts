@@ -65,6 +65,8 @@ The next step is covered in the [Simple SQL example](https://github.com/I-NERGY/
 
 ![image](https://user-images.githubusercontent.com/90190347/189383939-7928d389-4f14-4738-85c3-cadab3686675.png)
 
+We use ```RouteOnAttribute``` processor that allows us to route flowfiles based on their attributes. In this case we are rejecting empty files by making a new route(property) called ```non-empty``` which contains ```${fileSize:gt(0)}```. In this way every flow file with bigger size than 0 bytes will be routed to ```non-empty``` route.
+
 ### Preprocessing and saving
 
 
