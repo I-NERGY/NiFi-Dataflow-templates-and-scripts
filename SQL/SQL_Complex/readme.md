@@ -37,5 +37,9 @@ For each device, we want to query the current data for each day separately, so e
 
 Regarding the script execution we will use the ```ExecuteStreamCommand``` processor which allows us to execute external commands on the instance while getting the input as the flowfile content and creating the new flowfile that contains the command results. In this case the ```Command Path``` will be ```/usr/bin/python3.9``` or whatever version of python is installed on the instance and ```Command Arguments``` that is ```/opt/scripts/generate_daily_dates.py```or whatever is the path to the script you want to execute.
 
+In this case we have a ```generate_daily_dates``` that simply generates a JSON array where each object has a ```start``` and ```end``` that are 1 day apart. After they are generated we will split them in separate flow files in a similar fashion to the first process group and then extract then to an attribute. Every flow file coming from the first process group will keep its attributes for queries.
+
+..* ![image](https://user-images.githubusercontent.com/90190347/189381407-7bb475ef-79d0-43b8-b0ed-43b2e5a869e8.png)
+..* 
 
 
