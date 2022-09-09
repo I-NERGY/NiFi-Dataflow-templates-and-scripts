@@ -15,6 +15,11 @@ The flow starts with ```GenerateFlowFile``` processor with predefined custom tex
 In this case we want to extract the current data for each device with a unique ID that has 3 phases ```l1, l2, l3``` on a daily basis, starting from 2019. Lets say for this example that the column name for selecting is named ```TagName``` and has values looking like ```id-phase```. The end result of the first process group would be a flowfile with an attribute for a ```WHERE``` clausule looking like ```TagName='w1-l1' or TagName='w1-l2' or TagName='w1-l3'``` where we select all three phases for a device ```w1```.
 
 List of steps for the first group:
-⋅⋅⋅ Test
-⋅⋅⋅ Test
-First thing that is done, is spliting the JSON array data in flowfiles, each of them being one JSON object. We do that with ```SplitJson``` processor and setting ```JsonPath Expression``` to ```$.*```. 
+  1.  Generate the flow files like above
+  2.  Split the JSON array data in flowfiles, each of them being one JSON object. We do that with ```SplitJson``` processor and setting ```JsonPath Expression``` to ```$.*```. 
+  3.  Extract ```id``` and ```tags``` from data to attributes using the ```EvaluateJsonPath``` processor like on the picture below
+  
+  ![image](https://user-images.githubusercontent.com/90190347/189374893-48e1695e-0b18-40c4-be33-1f9febe6cde3.png)
+  
+  4.  
+
