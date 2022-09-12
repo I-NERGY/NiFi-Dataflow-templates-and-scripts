@@ -82,7 +82,7 @@ self.id = sys.argv[1]
 self.raw_data = sys.stdin.read()
 ```
 
-Now that we have the data we want ready, we can transform it to JSON with ```ConvertRecord``` processor looking like this:
+Now that we have the data ready, we can transform it to JSON with ```ConvertRecord``` processor looking like this:
 
 ![image](https://user-images.githubusercontent.com/90190347/189389266-ab07a740-467f-4651-906c-f4526bd4cf3b.png)
 
