@@ -3,7 +3,7 @@ NiFi templates containing custom data flows and python scripts
 ### Asset type
 Library
 ### Technical Categories
-..
+Data Processing
 ### Business Categories
 Energy
 ### Search Keywords
