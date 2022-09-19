@@ -5,6 +5,8 @@ Parts of a NiFi Data Flow:
 + Eeach edge in the graph is a Connection/Queue. Connections provide an actual linkage between processors in a form of a queue that allow various processes to interact at differing rates. 
 + The Flow Controller maintains the knowledge of how processes connect and manages the threads and allocations thereof which all processes use. The Flow Controller acts as the broker facilitating the exchange of FlowFiles between processors.
 + A Process Group is a specific set of processes and their connections, which can receive data via input ports and send data out via output ports. In this manner, process groups allow creation of entirely new components simply by composition of other components.
+
+For custom script execution there are multiple processors to choose from, but in these examples we use ```ExecuteSteamCommand``` which can execute an external command on the system that NiFi is running and make an output FlowFile with the results of the command. In this case we use it to execute Python scripts, but any language can be se used in the similar manner.
 NiFi templates containing custom data flows and python scripts
 ### Asset type
 Library
