@@ -1,4 +1,9 @@
 # NiFi Dataflow templates and scripts
+Apache NiFi is a tool that is built to automate the flow of data between systems. NiFi’s fundamental design concepts closely relate to the main ideas of Flow Based Programming, resulting in data flows being directional graphs. Data is represented within FlowFiles which are objects moving through the system, each containing attributes in a form of key/value pairs and its associated content of zero or more bytes. 
+Each node in the graph is a FlowFile Processor which perform actual work. FlowFile Processors are doing a combination of data routing, transformation or mediation between systems. They have access to attributes of a given FlowFile and its content stream.
+Eeach edge in the graph is a Connection/Queue. Connections provide an actual linkage between processors in a form of a queue that allow various processes to interact at differing rates. 
+The Flow Controller maintains the knowledge of how processes connect and manages the threads and allocations thereof which all processes use. The Flow Controller acts as the broker facilitating the exchange of FlowFiles between processors.
+A Process Group is a specific set of processes and their connections, which can receive data via input ports and send data out via output ports. In this manner, process groups allow creation of entirely new components simply by composition of other components.
 NiFi templates containing custom data flows and python scripts
 ### Asset type
 Library
