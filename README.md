@@ -9,7 +9,7 @@ Parts of a NiFi Data Flow:
 For custom script execution there are multiple processors to choose from, but in these examples we use ```ExecuteStreamCommand``` which can execute an external command on the system that NiFi is running and make an output FlowFile with the results of the command. In this case we use it to execute Python scripts, but any language can be se used in the similar manner.
 NiFi templates containing custom data flows and python scripts
 ### Asset type
-Library
+Tutorial
 ### Technical Categories
 Data Processing
 ### Business Categories
