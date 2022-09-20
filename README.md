@@ -19,13 +19,14 @@ data, dataflow, nifi, template, python, ETL, data_processing
 ### Developed by
 [Engineering Ingegneria Informatica S.P.A](https://www.ai4europe.eu/ai-community/organizations/company/engineering-ingegneria-informatica-spa)
 ### Detailed Description
-Apache NiFi offers a concept of Templates which let us share and reuse the already made dataflows. Steps for uploading and importing a template:
-  1.  Right click on empty space in NiFi and select Uplad Template
+Apache NiFi offers a concept of Templates which let us share and reuse the already made dataflows.
+Steps for uploading and importing a template:
+1.  Right click on empty space in NiFi and select Uplad Template
   
   ![image](https://user-images.githubusercontent.com/90190347/191253287-ebdf737e-01f6-4fba-ac7b-1d3b9865584f.png)
 
-  2. Select the template on a local machine
-  3. Import a template from the toolbar
+2. Select the template on a local machine
+3. Import a template from the toolbar
   
   ![image](https://user-images.githubusercontent.com/90190347/191253598-7daf98dc-1fdb-4377-ae42-3e6f0a1f4e8f.png)
 
